@@ -72,7 +72,7 @@ Optional
 -  <a href="http://habrahabr.ru/post/224593/">Лямбда-выражения в Java 8</a>
 -  <a href="https://github.com/winterbe/java8-tutorial">A Guide to Java 8</a>
 -  <a href="http://habrahabr.ru/company/luxoft/blog/270383/">Шпаргалка Java Stream API</a>
--  <a href="https://stepic.org/lesson/Stream-API-12781">Stream API. Видеурок от Алексея Владыкина</a>
+-  <a href="https://www.youtube.com/watch?v=hEyCK4ueBlc">Алексея Владыкин: Элементы функционального программирования в Java</a>
 -  <a href="http://stackoverflow.com/questions/28319064/java-8-best-way-to-transform-a-list-map-or-foreach">stream.map vs forEach</a>
 
 ```
