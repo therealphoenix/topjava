@@ -5,6 +5,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.util.CollectionUtils;
 import ru.javawebinar.topjava.util.UserMealsUtil;
 
 import javax.persistence.*;
@@ -89,7 +90,7 @@ public class User extends NamedEntity {
         this.password = password;
         this.caloriesPerDay = caloriesPerDay;
         this.enabled = enabled;
-        this.roles = roles;
+        setRoles(roles);
     }
 
     public String getEmail() {
@@ -133,7 +134,7 @@ public class User extends NamedEntity {
     }
 
     public void setRoles(Collection<Role> roles) {
-        this.roles = EnumSet.copyOf(roles);
+        this.roles = CollectionUtils.isEmpty(roles) ? Collections.emptySet() : EnumSet.copyOf(roles);
     }
 
     public String getPassword() {
