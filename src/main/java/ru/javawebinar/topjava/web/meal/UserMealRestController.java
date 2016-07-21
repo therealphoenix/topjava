@@ -64,4 +64,3 @@ public class UserMealRestController extends AbstractUserMealController {
         return super.getBetween(startDate, startTime, endDate, endTime);
     }
 }
-
