@@ -16,11 +16,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <spring-data-jpa.version>1.10.2.RELEASE</spring-data-jpa.version>
         <tomcat.version>8.0.33</tomcat.version>
 
         <!--http://stackoverflow.com/questions/37651837/integrate-hibernate-5-2-with-spring-framework-4-x        -->
         <spring.version>4.3.1.RELEASE</spring.version>
+        <spring-security.version>4.1.1.RELEASE</spring-security.version>
+        <spring-data-jpa.version>1.10.2.RELEASE</spring-data-jpa.version>
         <jackson-json.version>2.8.0</jackson-json.version>
 
         <!-- Logging -->
@@ -290,6 +291,18 @@
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
             <version>${jackson-json.version}</version>
+        </dependency>
+
+        <!--security-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring-security.version}</version>
         </dependency>
 
         <!-- Webjars (static dependencies distributed as JAR files) -->
