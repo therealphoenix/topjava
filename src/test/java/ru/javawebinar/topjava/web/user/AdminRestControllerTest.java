@@ -18,6 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static ru.javawebinar.topjava.UserTestData.*;
 
+// https://jira.spring.io/browse/SPR-14472
 public class AdminRestControllerTest extends AbstractControllerTest {
 
     private static final String REST_URL = AdminRestController.REST_URL + '/';
@@ -27,7 +28,7 @@ public class AdminRestControllerTest extends AbstractControllerTest {
         mockMvc.perform(get(REST_URL + ADMIN_ID))
                 .andExpect(status().isOk())
                 .andDo(print())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(MATCHER.contentMatcher(ADMIN));
     }
 
@@ -35,7 +36,7 @@ public class AdminRestControllerTest extends AbstractControllerTest {
     public void testGetByEmail() throws Exception {
         mockMvc.perform(get(REST_URL + "by?email=" + USER.getEmail()))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(MATCHER.contentMatcher(USER));
     }
 
@@ -78,7 +79,7 @@ public class AdminRestControllerTest extends AbstractControllerTest {
     public void testGetAll() throws Exception {
         TestUtil.print(mockMvc.perform(get(REST_URL))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(MATCHER.contentListMatcher(ADMIN, USER)));
     }
 }

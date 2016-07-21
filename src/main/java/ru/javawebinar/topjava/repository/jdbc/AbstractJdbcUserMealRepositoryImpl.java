@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.transaction.annotation.Transactional;
-import ru.javawebinar.topjava.model.Role;
 import ru.javawebinar.topjava.model.UserMeal;
 import ru.javawebinar.topjava.repository.UserMealRepository;
 
@@ -22,8 +21,6 @@ import java.util.List;
  */
 @Transactional(readOnly = true)
 public abstract class AbstractJdbcUserMealRepositoryImpl<T> implements UserMealRepository {
-
-    private static final RowMapper<Role> ROLE_ROW_MAPPER = (rs, rowNum) -> Role.valueOf(rs.getString("role"));
 
     private SimpleJdbcInsert insertUserMeal;
     private final RowMapper<UserMeal> rowMapper;

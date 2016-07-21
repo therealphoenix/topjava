@@ -100,7 +100,7 @@ public class JdbcUserRepositoryImpl implements UserRepository {
             final private Role role;
             final private int userId;
 
-            private UserRole(Role role, int userId) {
+            UserRole(Role role, int userId) {
                 this.role = role;
                 this.userId = userId;
             }
