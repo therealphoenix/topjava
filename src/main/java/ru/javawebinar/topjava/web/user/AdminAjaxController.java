@@ -25,13 +25,13 @@ public class AdminAjaxController extends AbstractUserController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void createOrUpdate(@RequestParam("id") int id,
+    public void createOrUpdate(@RequestParam("id") Integer id,
                                @RequestParam("name") String name,
                                @RequestParam("email") String email,
                                @RequestParam("password") String password) {
 
         User user = new User(id, name, email, password, Role.ROLE_USER);
-        if (id == 0) {
+        if (user.isNew()) {
             super.create(user);
         } else {
             super.update(user, id);
