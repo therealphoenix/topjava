@@ -37,7 +37,8 @@
                             <td>${user.roles}</td>
                             <td>
                                 <input type="checkbox"
-                                       <c:if test="${user.enabled}">checked</c:if>"/>
+                                       <c:if test="${user.enabled}">checked</c:if>
+                                       onclick="enable($(this), ${user.id})"/>
                             </td>
                             <td><fmt:formatDate value="${user.registered}" pattern="dd-MMMM-yyyy"/></td>
                             <td><a class="btn btn-xs btn-primary">Edit</a></td>
@@ -149,6 +150,11 @@
             ]
         });
         makeEditable();
+        $(':checkbox').each(function () {
+            if (!$(this).is(":checked")) {
+                $(this).closest('tr').css("text-decoration", "line-through");
+            }
+        });
     });
 </script>
 </html>
