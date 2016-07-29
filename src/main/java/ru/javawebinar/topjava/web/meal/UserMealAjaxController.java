@@ -1,13 +1,13 @@
 package ru.javawebinar.topjava.web.meal;
 
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import ru.javawebinar.topjava.AuthorizedUser;
 import ru.javawebinar.topjava.model.UserMeal;
 import ru.javawebinar.topjava.to.UserMealWithExceed;
+import ru.javawebinar.topjava.util.UserMealsUtil;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -30,15 +30,12 @@ public class UserMealAjaxController extends AbstractUserMealController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void updateOrCreate(@RequestParam("id") Integer id,
-                               @RequestParam("dateTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dateTime,
-                               @RequestParam("description") String description,
-                               @RequestParam("calories") int calories) {
-        UserMeal meal = new UserMeal(id, dateTime, description, calories);
+    public void updateOrCreate(UserMealWithExceed userMealWithExceed) {
+        UserMeal meal = new UserMeal(UserMealsUtil.createNewFromUMWithExceed(userMealWithExceed));
         if (meal.isNew()) {
             super.create(meal);
         } else {
-            super.update(meal, id);
+            super.update(meal, AuthorizedUser.id());
         }
     }
 
