@@ -47,11 +47,12 @@ $(function () {
                 "desc"
             ]
         ],
-        // "createdRow": function (row, data, dataIndex) {
-        //     if (!data.enabled) {
-        //         $(row).css("text-decoration", "line-through");
-        //     }
-        // },
+        "createdRow": function (row, data, dataIndex) {
+            /** @namespace data.exceed */
+            if (data.exceed) {
+                $(row).css("color", "red");
+            }
+        },
         "initComplete": makeEditable
     });
 

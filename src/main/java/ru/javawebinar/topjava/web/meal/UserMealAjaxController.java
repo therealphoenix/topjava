@@ -2,10 +2,8 @@ package ru.javawebinar.topjava.web.meal;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import ru.javawebinar.topjava.AuthorizedUser;
 import ru.javawebinar.topjava.model.UserMeal;
 import ru.javawebinar.topjava.to.UserMealWithExceed;
-import ru.javawebinar.topjava.util.UserMealsUtil;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -24,18 +22,22 @@ public class UserMealAjaxController extends AbstractUserMealController {
         return super.getAll();
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public UserMeal get(@PathVariable("id") int id) {
+        return super.get(id);
+    }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable("id") int id) {
         super.delete(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void updateOrCreate(UserMealWithExceed userMealWithExceed) {
-        UserMeal meal = new UserMeal(UserMealsUtil.createNewFromUMWithExceed(userMealWithExceed));
-        if (meal.isNew()) {
-            super.create(meal);
+    public void updateOrCreate(UserMeal userMeal) {
+        if (userMeal.isNew()) {
+            super.create(userMeal);
         } else {
-            super.update(meal, AuthorizedUser.id());
+            super.update(userMeal, userMeal.getId());
         }
     }
 

@@ -16,10 +16,6 @@ import java.util.stream.Collectors;
  */
 public class UserMealsUtil {
 
-    public static UserMeal createNewFromUMWithExceed(UserMealWithExceed withExceed) {
-        return new UserMeal(null, withExceed.getDateTime(), withExceed.getDescription(), withExceed.getCalories());
-    }
-
     public static final List<UserMeal> MEAL_LIST = Arrays.asList(
             new UserMeal(LocalDateTime.of(2015, Month.MAY, 30, 10, 0), "Завтрак", 500),
             new UserMeal(LocalDateTime.of(2015, Month.MAY, 30, 13, 0), "Обед", 1000),
