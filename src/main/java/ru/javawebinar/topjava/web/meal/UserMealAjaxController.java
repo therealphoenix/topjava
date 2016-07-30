@@ -39,9 +39,9 @@ public class UserMealAjaxController extends AbstractUserMealController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<String> updateOrCreate(@Valid UserMeal userMeal, BindingResult result) {
         if (result.hasErrors()) {
-            StringBuffer stringBuffer = new StringBuffer();
-            result.getFieldErrors().forEach(fe -> stringBuffer.append(fe.getField()).append(" ").append(fe.getDefaultMessage()).append("<br>"));
-            return new ResponseEntity<>(stringBuffer.toString(), HttpStatus.UNPROCESSABLE_ENTITY);
+            StringBuilder stringBuilder = new StringBuilder();
+            result.getFieldErrors().forEach(fe -> stringBuilder.append(fe.getField()).append(" ").append(fe.getDefaultMessage()).append("<br>"));
+            return new ResponseEntity<>(stringBuilder.toString(), HttpStatus.UNPROCESSABLE_ENTITY);
         }
         if (userMeal.isNew()) {
             super.create(userMeal);
