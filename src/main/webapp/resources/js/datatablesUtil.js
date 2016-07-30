@@ -11,6 +11,18 @@ function makeEditable() {
     $(document).ajaxError(function (event, jqXHR, options, jsExc) {
         failNoty(event, jqXHR, options, jsExc);
     });
+
+    $('.datepicker').datetimepicker({
+        timepicker: false,
+        format: 'Y-m-d',
+        theme: 'dark'
+    });
+
+    $('.timepicker').datetimepicker({
+        datepicker: false,
+        format: 'H:i',
+        theme: 'dark'
+    });
 }
 
 function add() {
