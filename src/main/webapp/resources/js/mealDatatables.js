@@ -57,7 +57,8 @@ $(function () {
     });
 
     $('#filter').submit(function () {
-        updateTable();
+        var form = $('#filter');
+        $.post(ajaxUrl + 'filter', form.serialize(), updateTableByData);
         return false;
     });
 });
