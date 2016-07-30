@@ -23,6 +23,10 @@ function makeEditable() {
         format: 'H:i',
         theme: 'dark'
     });
+
+    $('.datetimepicker').datetimepicker({
+        format: 'Y-m-d H:i'
+    });
 }
 
 function add() {

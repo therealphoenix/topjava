@@ -82,7 +82,7 @@
                         <label for="dateTime" class="control-label col-xs-3">Date</label>
 
                         <div class="col-xs-9">
-                            <input type="datetime-local" class="form-control" id="dateTime"
+                            <input type="text" class="form-control datetimepicker" id="dateTime"
                                    name="dateTime" placeholder="Date">
                         </div>
                     </div>
