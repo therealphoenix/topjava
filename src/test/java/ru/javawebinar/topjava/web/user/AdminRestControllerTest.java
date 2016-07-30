@@ -65,6 +65,7 @@ public class AdminRestControllerTest extends AbstractControllerTest {
                 .andExpect(status().isForbidden());
     }
 
+    @Test
     public void testUpdate() throws Exception {
         User updated = new User(USER);
         updated.setName("UpdatedName");
